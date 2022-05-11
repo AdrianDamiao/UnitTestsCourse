@@ -16,6 +16,7 @@ namespace TestNinja.UnitTests
         }
 
         [Test]
+        [Ignore("Porque eu quis!")]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
         {
             // Act
