@@ -16,14 +16,15 @@ namespace TestNinja.UnitTests
         }
 
         [Test]
-        [Ignore("Porque eu quis!")]
+        //[Ignore("Porque eu quis!")]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
         {
             // Act
             var result = _math.Add(1, 2);
 
             // Assert
-            Assert.That(result, Is.EqualTo(3));
+            //Assert.That(result, Is.EqualTo(3));
+            Assert.That(_math, Is.Not.Null); // Teste não confiável, algo que sempre vai passar
         }
 
         // Teste Parametrizado

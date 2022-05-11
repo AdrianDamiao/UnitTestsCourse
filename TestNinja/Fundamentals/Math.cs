@@ -7,6 +7,7 @@ namespace TestNinja.Fundamentals
         public int Add(int a, int b)
         { 
             return a + b;
+            //return 0; // Mudança no retorno para ver se o teste quebra
         }
         
         public int Max(int a, int b)
