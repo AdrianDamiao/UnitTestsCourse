@@ -1,6 +1,7 @@
 ﻿
+using System;
 using NUnit.Framework;
-using TestNinja.Fundamentals;
+using Math = TestNinja.Fundamentals.Math;
 
 namespace TestNinja.UnitTests
 {
@@ -39,6 +40,41 @@ namespace TestNinja.UnitTests
 
             //Assert
             Assert.That(result, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void GetOddNumbers_LimitIsGreatherThanZero_ReturnOddNumbersUpToLimit()
+        {
+            var result = _math.GetOddNumbers(5);
+            
+            // Assert.That(result, Is.Not.Null); // Too general
+            // Assert.That(result.Count(), Is.EqualTo(3)); Too specific
+
+            // Assert.That(result, Does.Contain(1));
+            // Assert.That(result, Does.Contain(3));
+            // Assert.That(result, Does.Contain(5));
+
+            // More polite way
+            Assert.That(result, Is.EquivalentTo(new [] {1, 3, 5})); // Regardless of the order in which they are
+
+            // Assert.That(result, Is.Ordered); Verify if the list is ordered
+            // Assert.That(result, Is.Unique); Verify if the list does not contain repeated numbers
+        }
+
+        [Test]
+        public void GetOddNumbers_LimitIsEqualToZero_ReturnEmptyList()
+        {
+            var result = _math.GetOddNumbers(0);
+
+            Assert.That(result, Is.EquivalentTo(new int[]{}));
+        }
+
+        [Test]
+        public void GetOddNumbers_LimitIsLessThanZero_ReturnEmptyList()
+        {
+            var result = _math.GetOddNumbers(-5);
+
+            Assert.That(result, Is.EquivalentTo(new int[]{}));
         }
     }
 }
